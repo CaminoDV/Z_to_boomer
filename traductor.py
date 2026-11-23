@@ -16,8 +16,14 @@ def traducir_a_boomer(frase: str) -> str:
     resultado: list[str] = []
 
     for palabra in palabras:
-        if palabra in JERGA_GENZ:
-            resultado.append(JERGA_GENZ[palabra])
+        cap=False
+        if palabra[0]==palabra[0].upper():
+            cap=True
+        if palabra.lower() in JERGA_GENZ:
+            res= JERGA_GENZ[palabra]
+            if cap:
+                res=res[0].upper + res[1:]
+            resultado.append(res)
         else:
             resultado.append(palabra)
 
